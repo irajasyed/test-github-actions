@@ -32,6 +32,8 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          git_hash=$(git rev-parse --short "$GITHUB_SHA")
+          echo $git_hash
   deploy-to-dev:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -46,6 +48,8 @@ jobs:
       - name: Deploy to Dev
         run: |
           echo Dev!
+          git_hash=$(git rev-parse --short "$GITHUB_SHA")
+          echo $git_hash
   deploy-to-qa:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -62,3 +66,5 @@ jobs:
       - name: Deploy QA
         run: |
           echo QA!
+          git_hash=$(git rev-parse --short "$GITHUB_SHA")
+          echo $git_hash
